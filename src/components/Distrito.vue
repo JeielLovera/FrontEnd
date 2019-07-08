@@ -31,7 +31,8 @@
                 </v-card>
             </v-dialog>
 
-            <v-data-table
+            <v-layout row wrap>
+                <v-data-table
             :headers="headers"
             :items="distritos"
             class="elevation-1"
@@ -41,6 +42,7 @@
                     <td>{{ props.item.nombre }}</td>
                 </template>
             </v-data-table>
+            </v-layout>
         </div>
     </v-layout>
 </template>
@@ -94,20 +96,18 @@ export default {
         });
     },
     buscarpornombre(){
-        let me = this;
-
-            axios.get('api/distrito/Nombre/' + me.nombre).then(function (response) {
-                console.log(response);
-                me.distritos = response.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
+            let me = this;
+                axios.get('api/distrito/Nombre/' + me.nombre).then(function (response) {
+                    console.log(response);
+                    me.distritos = response.data;
+                }).catch(function (error) {
+                    console.log(error);
+                });
     },
     guardar() {
             let me = this;
             axios 
                 .post("api/distrito", {
-                    
                     nombre: me.nombre
                 })
                 .then(function (response) {

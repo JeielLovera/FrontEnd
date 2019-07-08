@@ -83,8 +83,6 @@ export default {
             ],
         id: "",
         nombre: "",
-        distrito: "",
-        tipodireccion:  "",
         direcciones: [],
         tipodireccion: "",
         tipodirecciones:[],
